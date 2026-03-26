@@ -36,6 +36,17 @@
       overflow: hidden;
     }
 
+    .status-pill {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: #e7eed8;
+      color: #6c8b2a;
+      font-size: clamp(13px, 1.8vw, 14px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      align-self: center;
+    }
     .brand {
       line-height: 1.2;
       min-width: 0;
@@ -163,13 +174,13 @@
     }
 
     .btn.primary {
-      background: #0f4b8f;
+      background: #a4916d;
       color: #fff;
-      box-shadow: 0 14px 26px rgba(15, 75, 143, 0.22);
+      box-shadow: 0 14px 26px rgba(164, 145, 109, 0.22);
     }
 
     .btn.primary:hover {
-      background: #0d4380;
+      background: #8c7a5d;
     }
 
     .btn.primary:active {
@@ -179,7 +190,7 @@
     .status {
       margin-top: 14px;
       min-height: 24px;
-      color: #1c7c39;
+      color: #6c8b2a;
       font-size: 14px;
       font-weight: 600;
     }
@@ -228,6 +239,13 @@
       .sub {
         font-size: 15px;
       }
+
+      .sub2 {
+        font-size: 6px;
+      }
+        .code-box {
+          font-size: 22px;
+        }
     }
   </style>
 </head>
@@ -246,9 +264,10 @@
 
       <div class="content">
         <div class="mascot-wrap">
-          <img class="mascot" src="static/siph_success.png" alt="Success mascot" />
+          <img class="mascot" src="static/siph_line.png" alt="Success mascot" />
         </div>
-
+        
+        <div class="status-pill">รหัสประจำตัว Line สำหรับชำระเงิน</div>
         <h1>ชำระเงินผ่านช่องทางไลน์</h1>
         <p class="sub">พนักงานกำลังดำเนินการ กรุณารอสักครู่ค่ะ</p>
 
