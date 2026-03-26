@@ -7,28 +7,284 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Google Sans", "Google Sans Text", "Noto Sans Thai", Arial, sans-serif;
+      background: linear-gradient(180deg, #eef1f4 0%, #e6edf7 100%);
+      color: #333;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 40px);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 18px 48px rgba(15, 75, 143, 0.14);
+      overflow: hidden;
+    }
+
+    .brand {
+      line-height: 1.2;
+      min-width: 0;
+    }
+
+    .brand .th {
+      font-size: clamp(13px, 1.7vw, 15px);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .brand .en {
+      font-size: clamp(11px, 1.4vw, 13px);
+      opacity: 0.9;
+    }
+
+    .topbar {
+      background: #0f4b8f;
+      color: #fff;
+      padding: clamp(16px, 2.6vw, 22px) clamp(18px, 3vw, 26px);
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 16px);
+    }
+
+    .logo {
+      width: clamp(40px, 7vw, 48px);
+      height: clamp(40px, 7vw, 48px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #fff;
+      padding: 3px;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .content {
+      padding: clamp(30px, 5vw, 42px) clamp(22px, 5vw, 34px) clamp(34px, 6vw, 46px);
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .mascot-wrap {
+      width: clamp(150px, 42vw, 210px);
+      height: clamp(150px, 42vw, 210px);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mascot {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 3.2vw, 28px);
+      font-weight: 700;
+      color: #2d2d2d;
+    }
+
+    .sub {
+      margin: 8px 0 18px;
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: #666;
+    }
+
+    .code-box {
+      background: #f7f9fc;
+      border: 2px dashed #b8c6dd;
+      border-radius: 18px;
+      padding: 18px;
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 700;
+      word-break: break-word;
+      margin-bottom: 18px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #173560;
+    }
+
+    .btn {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    .btn-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .btn-label {
+      display: inline-block;
+    }
+
+    .btn.primary {
+      background: #0f4b8f;
+      color: #fff;
+      box-shadow: 0 14px 26px rgba(15, 75, 143, 0.22);
+    }
+
+    .btn.primary:hover {
+      background: #0d4380;
+    }
+
+    .btn.primary:active {
+      transform: translateY(1px);
+    }
+
+    .status {
+      margin-top: 14px;
+      min-height: 24px;
+      color: #1c7c39;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        max-width: 520px;
+      }
+
+      .content {
+        padding: 42px 40px 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 12px;
+      }
+
+      .card {
+        min-height: calc(100vh - 24px);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .content {
+        flex: 1;
+        padding: 28px 20px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .brand .th {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .sub {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page">
     <div class="card">
-      <div class="brand">Siriraj Piyamaharajkarun Hospital</div>
-      <h1>Payment Code</h1>
-      <p class="sub">กรุณาตรวจสอบรหัสก่อนคัดลอก</p>
+      <div class="topbar">
+        <div class="logo">
+          <img src="static/SIPH-Logo.png" alt="SIPH Logo" />
+        </div>
+        <div class="brand">
+          <div class="th">โรงพยาบาลศิริราช ปิยมหาราชการุณย์</div>
+          <div class="en">Siriraj Piyamaharajkarun Hospital</div>
+        </div>
+      </div>
 
-      <div id="displayText" class="code-box">-</div>
+      <div class="content">
+        <div class="mascot-wrap">
+          <img class="mascot" src="static/siph_success.png" alt="Success mascot" />
+        </div>
 
-      <button id="copyBtn" class="btn primary">Copy to Clipboard</button>
-      <div id="statusMsg" class="status"></div>
+        <h1>ชำระเงินผ่านช่องทางไลน์</h1>
+        <p class="sub">พนักงานกำลังดำเนินการ กรุณารอสักครู่ค่ะ</p>
 
-      <div class="helper">
-        ตัวอย่างการเรียกใช้งาน:
-        <br>
-        <code>?text=ABC123456</code>
+        <div id="displayText" class="code-box">-</div>
+
+        <button id="copyBtn" class="btn primary">
+          <img class="btn-icon" src="static/line.png" alt="LINE logo" />
+          <span class="btn-label">Copy to Clipboard</span>
+        </button>
+        <div id="statusMsg" class="status"></div>
       </div>
     </div>
   </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get("text") || "";
 
-  <script src="/script.js"></script>
+    const displayText = document.getElementById("displayText");
+    const copyBtn = document.getElementById("copyBtn");
+    const statusMsg = document.getElementById("statusMsg");
+
+    displayText.textContent = text || "-";
+
+    copyBtn.addEventListener("click", async () => {
+      if (!text) {
+        statusMsg.textContent = "ไม่พบข้อความสำหรับคัดลอก";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        statusMsg.textContent = "คัดลอกเรียบร้อยแล้ว";
+      } catch (err) {
+        statusMsg.textContent = "คัดลอกไม่สำเร็จ กรุณาคัดลอกด้วยตนเอง";
+      }
+    });
+  </script>
 </body>
 </html>
