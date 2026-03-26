@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Google Sans", "Google Sans Text", "Noto Sans Thai", Arial, sans-serif;
   background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
   color: #16345f;
 }
